@@ -25,19 +25,37 @@ The LLM is used for natural-language extraction and response generation. Securit
 
 ```text
 .
-├── agent.py                  # Root Agent export
-├── cli.py                    # Interactive terminal chat
-├── evaluate.py               # Automated scenario evaluator
+├── README.md                       # Setup, run instructions, and project overview
+├── agent.py                        # Root Agent export
+├── cli.py                          # Interactive terminal chat
+├── evaluate.py                     # Automated scenario evaluator
+├── requirements.txt                # Python dependencies
+├── sample_conversation.ipynb       # Example conversation walkthrough
+├── test.ipynb                      # Notebook scratch/test runner
+├── docs/
+│   ├── design_document.md          # Architecture, workflow, tradeoffs, improvements
+│   └── problem_statement.md        # Original assignment prompt
 ├── src/
-│   ├── agent/                # Agent wrapper and session handling
-│   ├── api/                  # Payment API client
-│   ├── graph/                # LangGraph state, graph, and prompts
-│   ├── tools/                # Lookup, extraction, verification, payment tools
-│   └── validators/           # Identity and card validation helpers
-├── tests/                    # Validator and agent tests
-└── docs/
-    ├── design_document.md    # Architecture, workflow, tradeoffs, improvements
-    └── problem_statement.md  # Original assignment prompt
+│   ├── config.py                   # Environment configuration
+│   ├── agent/
+│   │   └── agent_wrapper.py        # Agent wrapper and session handling
+│   ├── api/
+│   │   └── client.py               # Payment API client
+│   ├── graph/
+│   │   ├── agent_graph.py          # LangGraph construction
+│   │   ├── prompts.py              # Agent prompt instructions
+│   │   └── state.py                # Graph state schema
+│   ├── tools/
+│   │   ├── extractor_tool.py       # Structured data extraction tool
+│   │   ├── lookup_tool.py          # Account lookup tool
+│   │   ├── payment_tool.py         # Payment processing tool
+│   │   └── verify_tool.py          # Identity verification tool
+│   └── validators/
+│       ├── card.py                 # Card, CVV, expiry, and amount validators
+│       └── identity.py             # DOB, Aadhaar, and pincode validators
+└── tests/
+    ├── test_agent.py               # Agent flow tests
+    └── test_validators.py          # Validator unit tests
 ```
 
 ## Setup
